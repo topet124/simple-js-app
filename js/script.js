@@ -15,4 +15,12 @@ let pokemonList = [{
     type: ['blaze', 'solarPower']
   }
 ];
-document.write(pokemonList[0].type[0])
+// looping through the object
+for (i = 0; i < pokemonList.length; i++) {
+  if (pokemonList[i].height > 5) {
+    document.write(pokemonList[i].name + ' ' + 'height:' + pokemonList[i].height + ' ' + '--Wow this is huge' + '<br>')
+  } else {
+    document.write(pokemonList[i].name + ' ' + 'height:' + pokemonList[i].height + ' ' + '<br>')
+
+  }
+}

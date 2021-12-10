@@ -34,3 +34,34 @@ li{
   list-style-type: none;
 
 }
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  /* CSS for modal container - add your own desired CSS styles here */
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+.modal {
+  margin: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 15px;
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+  color: inherit;
+}
+.modal-close {
+    float: right;
+    border: 0;
+    background: none;
+    color: #777;
+    text-decoration: underline;
+    background-color: inherit;
+  }

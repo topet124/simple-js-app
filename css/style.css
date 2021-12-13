@@ -45,6 +45,8 @@ li{
   align-items: center;
   flex-direction: column;
 
+
+
 }
 .modal {
   margin: auto;
@@ -56,6 +58,15 @@ li{
   max-width: 700px;
   text-align: left;
   color: inherit;
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  margin-top: 20%;
+  transition: ease-in 2s;
+  transition-delay: 1s;
+  opacity: 0.8;
+  border-radius: 10px
+
+
 }
 .modal-close {
     float: right;

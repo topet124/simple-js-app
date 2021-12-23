@@ -5,8 +5,7 @@
 
      let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
 
-     let modalContainer = document.querySelector('#modal-container');
-
+     let modalContainer = document.querySelector('#pokedex');
 
      // geting the json format of the api
      function loadList() {
@@ -56,54 +55,29 @@
 
      function showModal(pokemon) {
 
+       let modal_body = $('.modal-body');
+
+       let modal_title = $('.modal-title');
+
        // Clear all existing modal content
-       modalContainer.innerHTML = '';
+       modal_body.empty()
+       modal_title.empty()
 
-       let modal = document.createElement('div');
-       modal.classList.add('modal');
+       let titleElement = $('<h1>' + pokemon.name + '</h1>');
 
+       let heightElement = $('<p>' + 'Height: ' + pokemon.height + '<p>');
+
+       // Image element
+       let imageElement = $('<img class="modal-img" src="" >');
+       imageElement.attr('src', pokemon.imageUrl);
        // Add the new modal content
-       let closeButtonElement = document.createElement('button');
-       closeButtonElement.classList.add('modal-close');
-       closeButtonElement.innerText = 'Close';
-       // making the close button active by activating hideModal
-       closeButtonElement.addEventListener('click', hideModal);
+       modal_title.append(titleElement);
+       modal_body.append(imageElement);
+       modal_body.append(heightElement);
 
-       let titleElement = document.createElement('h1');
-       titleElement.innerText = pokemon.name;
-
-       let contentElement = document.createElement('p');
-       contentElement.innerText = 'Height: ' + pokemon.height;
-
-       let imageElement = document.createElement('img');
-       imageElement.src = pokemon.imageUrl;
-
-       modal.appendChild(closeButtonElement);
-       modal.appendChild(titleElement);
-       modal.appendChild(contentElement);
-       modal.appendChild(imageElement);
-       modalContainer.appendChild(modal);
-
-       modalContainer.classList.add('is-visible');
+       $('#pokedex').modal();
      }
 
-     function hideModal() {
-       modalContainer.classList.remove('is-visible');
-     }
-
-     // When ESC is pressed.
-     window.addEventListener('keydown', (e) => {
-       if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-         hideModal();
-       }
-     });
-
-     modalContainer.addEventListener('click', (e) => {
-       let target = e.target;
-       if (target === modalContainer) {
-         hideModal();
-       }
-     });
 
 
      fetch('https://pokeapi.co/api/v2/pokemon/').then(function(response) {
@@ -141,12 +115,11 @@
 
      // When ESC is pressed.
      window.addEventListener('keydown', (e) => {
-       let modalContainer = document.querySelector('#modal-container');
+       let modalContainer = document.querySelector('#pokedex');
        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
          hideModal();
        }
      });
-
 
      fetch('https://pokeapi.co/api/v2/pokemon/').then(function(response) {
        return response.json();

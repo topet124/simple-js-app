@@ -28,7 +28,8 @@ body {
   font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
-  border-radius: 8px
+  border-radius: 8px;
+
 }
 
 li{
@@ -36,8 +37,11 @@ li{
 }
 .navbar-custom {
     background-color: #ff5500;
-    margin-bottom: 10px;
+    margin-bottom:10px;
     padding: 10px;
-    border-radius: 8px
+    border-radius: 8px;
+    opacity: 0.8;
+
+
 
 }

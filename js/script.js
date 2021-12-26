@@ -79,13 +79,6 @@
      }
 
 
-
-     fetch('https://pokeapi.co/api/v2/pokemon/').then(function(response) {
-       return response.json();
-     }).then(function(pokemonList) {
-       console.log(pokemonList);
-     }).catch(function() {});
-
      function showDetails(pokemon) {
        loadDetails(pokemon).then(function() {
          showModal(pokemon);
@@ -95,6 +88,7 @@
      function addList(pokemon) {
        let pkList = document.querySelector('.pokemon-list');
        let listItem = document.createElement('li');
+       listItem.classList.add('data-list-item')
        let button = document.createElement('button');
        button.innerText = pokemon.name;
        //adds class to button for css styling
@@ -121,11 +115,6 @@
        }
      });
 
-     fetch('https://pokeapi.co/api/v2/pokemon/').then(function(response) {
-       return response.json();
-     }).then(function(pokemonList) {
-       console.log(pokemonList);
-     }).catch(function() {});
 
      return {
        add: add,

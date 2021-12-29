@@ -88,7 +88,7 @@
      function addList(pokemon) {
        let pkList = document.querySelector('.pokemon-list');
        let listItem = document.createElement('li');
-       listItem.classList.add('data-list-item')
+       listItem.classList.add('group-list-item')
        let button = document.createElement('button');
        button.innerText = pokemon.name;
        //adds class to button for css styling
